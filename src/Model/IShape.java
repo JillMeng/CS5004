@@ -15,38 +15,18 @@ public interface IShape {
 
   ShapeType getType();
 
-  double getSizeX();
-
-  double getSizeY();
-
-  int appearTime();
-
-  int disappearTime();
-
   Position getPosition();
-
-  Color getColor();
 
   void setPosition(Position p);
 
-  /**
-   * Scales the shape with given factor during a specific time interval.
-   *
-   * @param factor the given factor to scale the shape
-   */
-  void setScaleX(double factor);
-
-  void setScaleY(double factor);
-
-  /**
-   * Changes the color of the shape to a given color during a specific time interval.
-   *
-   * @param c the color to change to
-   */
   void setColor(Color c);
 
-  //list
-  void addAction(IAction action);
+
+  void setScale(double height, double width);
+
+  void addAction(Action action);
+
+  AbstractIShape getCurrentShape(int tick);
 
 }
 

@@ -3,16 +3,18 @@ package Model;
 public class Action<T extends IStatus> implements IAction {
 
   //private Shape shape;
-  private String target;
-  private int startTick;
-  private int endTick;
-  private T startS;
-  private T endS;
-  private ActionType actionType;
+  protected String target;
+  protected String actionID;
+  protected int startTick;
+  protected int endTick;
+  protected T startS;
+  protected T endS;
+  protected ActionType actionType;
 
-  public Action(String target, int startTick,
+  public Action(String target, String actionID, int startTick,
                 int endTick, T startS, T endS, ActionType actionType) {
     this.target = target;
+    this.actionID = actionID;
     this.startTick = startTick;
     this.endTick = endTick;
     this.startS = startS;
@@ -22,6 +24,10 @@ public class Action<T extends IStatus> implements IAction {
 
   public String getTarget() {
     return target;
+  }
+
+  public String getActionID() {
+    return actionID;
   }
 
   public int getStartTick() {

@@ -18,9 +18,9 @@ public class Scale implements IStatus{
     return width;
   }
 
-  public String toString() {
-    String str = "(%f, %f)";
-    return String.format(str, x, y);
-  }
+//  public String toString() {
+//    String str = "(%f, %f)";
+//    return String.format(str, x, y);
+//  }
 
 }

@@ -1,4 +1,6 @@
 package Model;
 
-public enum ShapeType { RECTANGLE, OVAL
+public enum ShapeType {
+  RECTANGLE,
+  OVAL
 }

@@ -1,6 +1,9 @@
 package Model;
 
 
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Shape extends AbstractIShape {
 
@@ -9,12 +12,26 @@ public class Shape extends AbstractIShape {
     super(name, type, position, size, color, appearT, disappearT);
   }
 
+
   //Shape C changes color from (0.0,0.0,1.0) to (0.0,1.0,0.0) from t=50 to t=80
   @Override
   public AbstractIShape getCurrentShape(int tick) {
     Shape shapeCopy = new Shape(name, type, position, size, color, appearT, disappearT);
+
+    Map<String, List<Action>> maps = actions.stream()
+            .collect(Collectors.groupingBy(item -> item.getTarget() + "_" + item.getActionType()));
+
     for (Action action : actions) {
-      if (tick > action.getStartTick() && tick < action.getEndTick()) {
+      tick = Math.min(action.getEndTick(), tick);
+      if (tick >= action.getStartTick() && tick <= action.getEndTick()) {
+        List<Action> groupedActions = maps.get(action.getTarget() + "_" + action.getActionType());
+        for (Action checkAction : groupedActions)
+          if (action.actionID != checkAction.actionID) {
+            if (action.getStartTick() <= checkAction.getEndTick()
+                    && checkAction.getStartTick() <= action.getStartTick()) {
+              throw new IllegalArgumentException("Action overlap.");
+            }
+          }
         int timeDiff = tick - action.getStartTick();
         double ratio = (double) timeDiff / (double) (action.getEndTick() - action.getStartTick());
         switch (action.getActionType()) {
@@ -26,7 +43,7 @@ public class Shape extends AbstractIShape {
                     - actionColor.getStartS().getBlue()) + actionColor.getStartS().getBlue();
             double currentG = ratio * (actionColor.getEndS().getGreen()
                     - actionColor.getStartS().getGreen()) + actionColor.getStartS().getGreen();
-            shapeCopy.setColor(new Color(currentR,currentB,currentG));
+            shapeCopy.setColor(new Color(currentR, currentB, currentG));
             break;
           case CHANGEPOSITION:
             Action<Position> actionPosition = (Action<Position>) action;
@@ -34,7 +51,7 @@ public class Shape extends AbstractIShape {
                     - actionPosition.getStartS().getX()) + actionPosition.getStartS().getX();
             double currentY = ratio * (actionPosition.getEndS().getY()
                     - actionPosition.getStartS().getY()) + actionPosition.getStartS().getY();
-            Position currentPosition = new Position(currentX,currentY);
+            Position currentPosition = new Position(currentX, currentY);
             shapeCopy.setPosition(currentPosition);
             break;
           case CHANGESCALE:
@@ -43,10 +60,10 @@ public class Shape extends AbstractIShape {
                     - actionScale.getStartS().getHeight()) + actionScale.getStartS().getHeight();
             double currentWidth = ratio * (actionScale.getEndS().getWidth()
                     - actionScale.getStartS().getHeight()) + actionScale.getStartS().getWidth();
-            shapeCopy.setScale(currentHeight,currentWidth);
+            shapeCopy.setScale(currentHeight, currentWidth);
             break;
           default:
-              throw new IllegalArgumentException("Cannot perform action.");
+            throw new IllegalArgumentException("Cannot perform action.");
         }
       }
     }

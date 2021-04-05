@@ -43,29 +43,12 @@ public abstract class AbstractIShape implements IShape {
     return type;
   }
 
-  public Scale getSize() {
-    return size;
-  }
 
   @Override
   public Position getPosition() {
     return position;
   }
 
-  @Override
-  public Color getColor() {
-    return color;
-  }
-
-  @Override
-  public int appearTime() {
-    return appearT;
-  }
-
-  @Override
-  public int disappearTime() {
-    return disappearT;
-  }
 
   @Override
   public void setPosition(Position p) {
