@@ -19,7 +19,7 @@ public class Action<T extends IStatus> implements IAction {
    * Constructs an action using target, action ID, start tick, end tick,
    * start status, end status and action type.
    *
-   * @param target the target of the action
+   * @param target the name id of the target shape that act the action
    * @param actionID the action ID of the action
    * @param startTick the start tick of the action
    * @param endTick the end tick of the action

@@ -8,9 +8,9 @@ package Model;
 public interface IAction <T> {
 
   /**
-   * Returns target.
+   * Returns the name id of the target shape that will act the action.
    *
-   * @return target
+   * @return the target shape's name id
    */
   String getTarget();
 
