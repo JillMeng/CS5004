@@ -22,4 +22,10 @@ public class Color implements IStatus{
   public double getBlue() {
     return blue;
   }
+
+  @Override
+  public String getCurrentStatus() {
+    String str = "Color: (%.1f, %.1f, %.1f)";
+    return String.format(str, red, green, blue);
+  }
 }

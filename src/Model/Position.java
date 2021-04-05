@@ -16,4 +16,10 @@ public class Position implements IStatus{
   public double getY() {
     return y;
   }
+
+  @Override
+  public String getCurrentStatus() {
+    String str = "Position: (%.1f, %.1f)";
+    return String.format(str, x, y);
+  }
 }

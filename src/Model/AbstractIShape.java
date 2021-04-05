@@ -14,16 +14,12 @@ public abstract class AbstractIShape implements IShape {
   protected int disappearT;
   protected List<Action> actions = new LinkedList<>();
 
-//  Shapes:
-//  Name: R
-//  Type: rectangle
-//  Min corner: (200.0,200.0), Width: 50.0, Height: 100.0, Color: (1.0,0.0,0.0)
-//  Appears at t=1
-//  Disappears at t=100
 
   public AbstractIShape(String name, ShapeType type, Position position, Scale size,
                         Color color, int appearT, int disappearT) {
-    //Throw illegal arguments
+    if (name == null || appearT < 0 || disappearT < appearT) {
+      throw new IllegalArgumentException("Shape object is invalid.");
+    }
     this.name = name;
     this.type = type;
     this.position = position;
@@ -49,6 +45,17 @@ public abstract class AbstractIShape implements IShape {
   }
 
   @Override
+  public Color getColor() {
+    return color;
+  }
+
+  @Override
+  public Scale getScale() {
+    return size;
+  }
+
+
+  @Override
   public void setPosition(Position p) {
     this.position = p;
   }
@@ -60,6 +67,9 @@ public abstract class AbstractIShape implements IShape {
 
   @Override
   public void setScale(double height, double width) {
+    if (height < 0 || width < 0) {
+      throw new IllegalArgumentException("Scale size cannot be negative");
+    }
     this.size = new Scale(height, width);
   }
 

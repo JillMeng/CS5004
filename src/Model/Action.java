@@ -12,6 +12,9 @@ public class Action<T extends IStatus> implements IAction {
 
   public Action(String target, String actionID, int startTick,
                 int endTick, T startStatus, T endStatus, ActionType actionType) {
+    if (target == null || actionID == null || startTick <0 || endTick < startTick) {
+      throw new IllegalArgumentException("Invalid action entry.");
+    }
     this.target = target;
     this.actionID = actionID;
     this.startTick = startTick;

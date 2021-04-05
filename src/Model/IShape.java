@@ -9,10 +9,13 @@ public interface IShape {
 
   Position getPosition();
 
+  Color getColor();
+
+  Scale getScale();
+
   void setPosition(Position p);
 
   void setColor(Color c);
-
 
   void setScale(double height, double width);
 

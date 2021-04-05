@@ -19,6 +19,14 @@ public class Shapes {
     }
   }
 
+  public int count() {
+    return shapes.size();
+  }
+
+  public Shape getShape(int index) {
+    return shapes.get(index);
+  }
+
   public List<Shape> getState(int tick) {
     List<Shape> shapesCopy = new LinkedList<>();
     shapes.forEach(shape -> {

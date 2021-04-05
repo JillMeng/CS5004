@@ -18,5 +18,9 @@ public class Scale implements IStatus{
     return width;
   }
 
-
+  @Override
+  public String getCurrentStatus() {
+    String str = "Scale: (%.1f, %.1f)";
+    return String.format(str, width, height);
+  }
 }
