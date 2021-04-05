@@ -3,6 +3,10 @@ package Model;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * This is an abstract superclass that hold common code and attributes for Shape.
+ * This class implements IShape interface.
+ */
 public abstract class AbstractIShape implements IShape {
 
   protected String name;
@@ -15,6 +19,18 @@ public abstract class AbstractIShape implements IShape {
   protected List<Action> actions = new LinkedList<>();
 
 
+  /**
+   * Constructs an AbstractIShape using given name, shape type, position,
+   * size, color, appear tick and disappear tick.
+   *
+   * @param name the name id of the shape
+   * @param type the shape type of the shape
+   * @param position the position of the shape
+   * @param size the size of the shape
+   * @param color the color of the shape
+   * @param appearT the appear tick of the shape
+   * @param disappearT the disappear tick of the shape
+   */
   public AbstractIShape(String name, ShapeType type, Position position, Scale size,
                         Color color, int appearT, int disappearT) {
     if (name == null || appearT < 0 || disappearT < appearT) {
