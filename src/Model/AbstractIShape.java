@@ -14,8 +14,6 @@ public abstract class AbstractIShape implements IShape {
   protected int disappearT;
   protected List<Action> actions = new LinkedList<>();
 
-
-
 //  Shapes:
 //  Name: R
 //  Type: rectangle
@@ -35,20 +33,20 @@ public abstract class AbstractIShape implements IShape {
     this.disappearT = disappearT;
   }
 
+  @Override
   public String getName() {
     return name;
   }
 
+  @Override
   public ShapeType getType() {
     return type;
   }
-
 
   @Override
   public Position getPosition() {
     return position;
   }
-
 
   @Override
   public void setPosition(Position p) {
@@ -60,10 +58,9 @@ public abstract class AbstractIShape implements IShape {
     this.color = c;
   }
 
- //Shape R scales from Width: 50.0, Height: 100.0 to Width: 25.0, Height: 100.0 from t=51 to t=70
   @Override
   public void setScale(double height, double width) {
-    this.size = new Scale (height, width);
+    this.size = new Scale(height, width);
   }
 
   @Override

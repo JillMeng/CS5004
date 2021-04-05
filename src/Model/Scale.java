@@ -5,7 +5,7 @@ public class Scale implements IStatus{
   private double height;
   private double width;
 
-  public Scale(double height, double width) {
+  public Scale(double width, double height) {
     this.height = height;
     this.width = width;
   }
@@ -18,9 +18,5 @@ public class Scale implements IStatus{
     return width;
   }
 
-//  public String toString() {
-//    String str = "(%f, %f)";
-//    return String.format(str, x, y);
-//  }
 
 }

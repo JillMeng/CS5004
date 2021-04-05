@@ -1,6 +1,5 @@
 package Model;
 
-
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
@@ -26,7 +25,7 @@ public class Shape extends AbstractIShape {
       if (tick >= action.getStartTick() && tick <= action.getEndTick()) {
         List<Action> groupedActions = maps.get(action.getTarget() + "_" + action.getActionType());
         for (Action checkAction : groupedActions)
-          if (action.actionID != checkAction.actionID) {
+          if (action.getActionID() != checkAction.getActionID()) {
             if (action.getStartTick() <= checkAction.getEndTick()
                     && checkAction.getStartTick() <= action.getStartTick()) {
               throw new IllegalArgumentException("Action overlap.");
@@ -35,7 +34,7 @@ public class Shape extends AbstractIShape {
         int timeDiff = tick - action.getStartTick();
         double ratio = (double) timeDiff / (double) (action.getEndTick() - action.getStartTick());
         switch (action.getActionType()) {
-          case CHANGECOLOR:
+          case ChangeColor:
             Action<Color> actionColor = (Action<Color>) action;
             double currentR = ratio * (actionColor.getEndS().getRed()
                     - actionColor.getStartS().getRed()) + actionColor.getStartS().getRed();
@@ -45,7 +44,7 @@ public class Shape extends AbstractIShape {
                     - actionColor.getStartS().getGreen()) + actionColor.getStartS().getGreen();
             shapeCopy.setColor(new Color(currentR, currentB, currentG));
             break;
-          case CHANGEPOSITION:
+          case ChangePosition:
             Action<Position> actionPosition = (Action<Position>) action;
             double currentX = ratio * (actionPosition.getEndS().getX()
                     - actionPosition.getStartS().getX()) + actionPosition.getStartS().getX();
@@ -54,7 +53,7 @@ public class Shape extends AbstractIShape {
             Position currentPosition = new Position(currentX, currentY);
             shapeCopy.setPosition(currentPosition);
             break;
-          case CHANGESCALE:
+          case ChangeScale:
             Action<Scale> actionScale = (Action<Scale>) action;
             double currentHeight = ratio * (actionScale.getEndS().getHeight()
                     - actionScale.getStartS().getHeight()) + actionScale.getStartS().getHeight();

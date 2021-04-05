@@ -16,9 +16,4 @@ public class Position implements IStatus{
   public double getY() {
     return y;
   }
-
-  public String toString() {
-    String str = "(%f, %f)";
-    return String.format(str, x, y);
-  }
 }

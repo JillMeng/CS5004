@@ -1,17 +1,19 @@
 package Model;
 
-public interface IAction {
+public interface IAction <T> {
 
-  //•	moveTo (Position other, startTick, endTick) :new ShapeImp
-  //•	changeColor(Color other, startTick, endTick): new ShapeImp
-  //•	scaling(factor, startTick, endTick): new ShapeImp
+  String getTarget();
 
+  String getActionID();
 
-//  void move(Position p);
-//  void changeColor(Color other);
-//  void changeShape(ShapeType other);
-//  void scaling(double factor);
+  int getStartTick();
 
-  //String getStatus();
+  int getEndTick();
+
+  T getStartS();
+
+  T getEndS();
+
+  ActionType getActionType();
 
 }

@@ -2,56 +2,59 @@ package Model;
 
 public class Action<T extends IStatus> implements IAction {
 
-  //private Shape shape;
-  protected String target;
-  protected String actionID;
-  protected int startTick;
-  protected int endTick;
-  protected T startS;
-  protected T endS;
-  protected ActionType actionType;
+  private final String target;
+  private final String actionID;
+  private final int startTick;
+  private final int endTick;
+  private final T startStatus;
+  private final T endStatus;
+  private final ActionType actionType;
 
   public Action(String target, String actionID, int startTick,
-                int endTick, T startS, T endS, ActionType actionType) {
+                int endTick, T startStatus, T endStatus, ActionType actionType) {
     this.target = target;
     this.actionID = actionID;
     this.startTick = startTick;
     this.endTick = endTick;
-    this.startS = startS;
-    this.endS = endS;
+    this.startStatus = startStatus;
+    this.endStatus = endStatus;
     this.actionType = actionType;
   }
 
+  @Override
   public String getTarget() {
     return target;
   }
 
+  @Override
   public String getActionID() {
     return actionID;
   }
 
+  @Override
   public int getStartTick() {
     return startTick;
   }
 
+  @Override
   public int getEndTick() {
     return endTick;
   }
 
+  @Override
   public T getStartS() {
-    return startS;
+    return startStatus;
   }
 
+  @Override
   public T getEndS() {
-    return endS;
+    return endStatus;
   }
 
+  @Override
   public ActionType getActionType() {
     return actionType;
   }
-
-  //Shape R moves from (200.0,200.0) to (300.0,300.0) from t=10 to t=50
-  //Shape C moves from (500.0,100.0) to (500.0,400.0) from t=20 to t=70
 
 }
 
