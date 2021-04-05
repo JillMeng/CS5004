@@ -1,19 +1,9 @@
 package Model;
 
-public class Oval implements Shape{
+public class Oval extends AbstractShape{
 
-  @Override
-  public String getShapeName() {
-    return null;
-  }
-
-  @Override
-  public Position getInitPosition() {
-    return null;
-  }
-
-  @Override
-  public Color getInitColor() {
-    return null;
+  public Oval(String name, ShapeType type, Position position,
+              double sizeX, double sizeY, Color color, int appearT, int disappearT) {
+    super(name, type, position, sizeX, sizeY, color, appearT, disappearT);
   }
 }

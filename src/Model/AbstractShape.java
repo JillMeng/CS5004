@@ -50,12 +50,22 @@ public abstract class AbstractShape implements Shape {
 
   @Override
   public Position getPosition() {
-    return this.position;
+    return position;
   }
 
   @Override
   public Color getColor() {
-    return this.color;
+    return color;
+  }
+
+  @Override
+  public int appearTime() {
+    return appearT;
+  }
+
+  @Override
+  public int disappearTime() {
+    return disappearT;
   }
 
   @Override

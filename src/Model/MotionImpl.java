@@ -22,7 +22,7 @@ public class MotionImpl implements IMotion{
 
   @Override
   public void move(Position p) {
-
+    shape.setPosition(p);
   }
 
   @Override

@@ -6,9 +6,13 @@ public interface IMotion {
   //•	changeColor(Color other, startTick, endTick): new ShapeImp
   //•	scaling(factor, startTick, endTick): new ShapeImp
 
-  void move(Position p);
-  void changeColor(Color other);
-  void changeShape(ShapeType other);
-  void scaling(double factor);
+
+
+//  void move(Position p);
+//  void changeColor(Color other);
+//  void changeShape(ShapeType other);
+//  void scaling(double factor);
+
+  String getStatus();
 
 }

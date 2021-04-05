@@ -2,25 +2,20 @@ package Model;
 
 public abstract class AbstractMotion implements IMotion{
 
-  private Shape startShape;
-  private Shape endShape;
+  private Shape shape;
+  private String name;
   private int startTick;
   private int endTick;
 
-  public AbstractMotion(Shape startShape, Shape endShape, int startTick, int endTick) {
-    this.startShape = startShape;
-    this.endShape = endShape;
+  public AbstractMotion(Shape shape, String name, int startTick, int endTick) {
+    this.shape = shape;
+    this.name = name;
     this.startTick = startTick;
     this.endTick = endTick;
   }
 
-
-  public Shape getStartShape() {
-    return startShape;
-  }
-
-  public Shape getEndShape() {
-    return endShape;
+  public String getName() {
+    return name;
   }
 
   public int getStartTick() {
