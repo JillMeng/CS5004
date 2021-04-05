@@ -4,9 +4,23 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+/**
+ * This class represents a shape that extends the AbstractIShape abstract class.
+ */
 public class Shape extends AbstractIShape {
 
-
+  /**
+   * Constructs a Shape using given name, shape type, position, size,
+   * color, appear tick, and disappear tick.
+   *
+   * @param name the name id of the shape
+   * @param type the type of the shape
+   * @param position the position of the shape
+   * @param size the size of the shape
+   * @param color the color of the shape
+   * @param appearT the appear tick of the shape
+   * @param disappearT the disappear tick of the shape
+   */
   public Shape(String name, ShapeType type, Position position, Scale size, Color color, int appearT, int disappearT) {
     super(name, type, position, size, color, appearT, disappearT);
   }
