@@ -12,11 +12,11 @@ public interface Animation {
    * Adds a shape to the animation.
    *
    * @param name the name id of the shape to be added
-   * @param shape the shape to be added
+   * @param IShape the shape to be added
    * @param time the Time interval of the shape
    * @throws IllegalArgumentException if the name id already existed in the list
    */
-  void addShape(String name, Shape shape) throws IllegalArgumentException;
+  void addShape(String name, IShape IShape) throws IllegalArgumentException;
 
   /**
    * Removes a shape from the animation.
@@ -33,7 +33,7 @@ public interface Animation {
    * @param motion the motion to be added to the motion list
    * @throws IllegalArgumentException if the motion already existed in the list
    */
-  void addMotion(String name, IMotion motion) throws IllegalArgumentException;
+  void addMotion(String name, IAction motion) throws IllegalArgumentException;
 
   /**
    * Removes a motion from the animation.

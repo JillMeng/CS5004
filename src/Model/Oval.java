@@ -1,6 +1,6 @@
 package Model;
 
-public class Oval extends AbstractShape{
+public class Oval extends AbstractIShape {
 
   public Oval(String name, ShapeType type, Position position,
               double sizeX, double sizeY, Color color, int appearT, int disappearT) {

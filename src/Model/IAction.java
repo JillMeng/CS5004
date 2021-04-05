@@ -1,11 +1,10 @@
 package Model;
 
-public interface IMotion {
+public interface IAction {
 
   //•	moveTo (Position other, startTick, endTick) :new ShapeImp
   //•	changeColor(Color other, startTick, endTick): new ShapeImp
   //•	scaling(factor, startTick, endTick): new ShapeImp
-
 
 
 //  void move(Position p);
@@ -13,6 +12,6 @@ public interface IMotion {
 //  void changeShape(ShapeType other);
 //  void scaling(double factor);
 
-  String getStatus();
+  //String getStatus();
 
 }

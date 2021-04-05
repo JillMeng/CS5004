@@ -2,12 +2,11 @@ package Model;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class AnimationImpl implements Animation{
 
-  private HashMap<String, Shape> shapeList;
-  private HashMap <String,IMotion> motionList;
+  private HashMap<String, IShape> shapeList;
+  private HashMap <String, IAction> motionList;
 
   public AnimationImpl() {
     shapeList = new LinkedHashMap<>();
@@ -15,12 +14,12 @@ public class AnimationImpl implements Animation{
   }
 
   @Override
-  public void addShape(String name, Shape shape) {
+  public void addShape(String name, IShape IShape) {
     if (shapeList.containsKey(name)) {
       throw new IllegalArgumentException("Name ID already existed.");
     }
     else {
-      shapeList.put(name, shape);
+      shapeList.put(name, IShape);
     }
   }
 
@@ -36,7 +35,7 @@ public class AnimationImpl implements Animation{
   }
 
   @Override
-  public void addMotion(String name, IMotion motion) {
+  public void addMotion(String name, IAction motion) {
     if (motionList.containsKey(name)) {
       throw new IllegalArgumentException("Name ID already existed.");
     }

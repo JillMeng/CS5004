@@ -1,6 +1,6 @@
 package Model;
 
-public class Color {
+public class Color implements IStatus{
   private double red;
   private double green;
   private double blue;

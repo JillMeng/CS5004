@@ -1,6 +1,6 @@
 package Model;
 
-public class Position {
+public class Position implements IStatus{
   private double x;
   private double y;
 

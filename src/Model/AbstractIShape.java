@@ -1,15 +1,19 @@
 package Model;
 
-public abstract class AbstractShape implements Shape {
+import java.util.LinkedList;
+import java.util.List;
 
-  private String name;
-  private ShapeType type;
-  private Position position;
-  private double sizeX;
-  private double sizeY;
-  private Color color;
-  private int appearT;
-  private int disappearT;
+public abstract class AbstractIShape implements IShape {
+
+  protected String name;
+  protected ShapeType type;
+  protected Position position;
+  protected Scale size;
+  protected Color color;
+  protected int appearT;
+  protected int disappearT;
+  protected List<Action> actions = new LinkedList<>();
+
 
 
 //  Shapes:
@@ -19,14 +23,13 @@ public abstract class AbstractShape implements Shape {
 //  Appears at t=1
 //  Disappears at t=100
 
-  public AbstractShape(String name, ShapeType type, Position position,
-                       double sizeX, double sizeY, Color color, int appearT, int disappearT) {
+  public AbstractIShape(String name, ShapeType type, Position position, Scale size,
+                        Color color, int appearT, int disappearT) {
     //Throw illegal arguments
     this.name = name;
     this.type = type;
     this.position = position;
-    this.sizeX = sizeX;
-    this.sizeY = sizeY;
+    this.size = size;
     this.color = color;
     this.appearT = appearT;
     this.disappearT = disappearT;
@@ -40,12 +43,8 @@ public abstract class AbstractShape implements Shape {
     return type;
   }
 
-  public double getSizeX() {
-    return sizeX;
-  }
-
-  public double getSizeY() {
-    return sizeY;
+  public Scale getSize() {
+    return size;
   }
 
   @Override
@@ -80,14 +79,13 @@ public abstract class AbstractShape implements Shape {
 
  //Shape R scales from Width: 50.0, Height: 100.0 to Width: 25.0, Height: 100.0 from t=51 to t=70
   @Override
-  public void setScaleX(double factor) {
-    this.sizeX = factor * sizeX;
+  public void setScale(double height, double width) {
+    this.size = new Scale (height, width);
   }
 
   @Override
-  public void setScaleY(double factor) {
-    this.sizeY = factor * sizeY;
+  public void addAction(Action action) {
+    actions.add(action);
   }
-
 }
 

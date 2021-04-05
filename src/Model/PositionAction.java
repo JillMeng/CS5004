@@ -1,15 +1,15 @@
 package Model;
 
-public class Move extends AbstractMotion {
+public class PositionAction extends AbstractAction {
 
-  private Shape shape;
+  private IShape IShape;
   private String name;
   private int startTick;
   private int endTick;
   private Position endP;
 
-  public Move(Shape shape, String name, int startTick, int endTick, Position endP) {
-    super(shape, name, startTick, endTick);
+  public PositionAction(IShape IShape, String name, int startTick, int endTick, Position endP) {
+    super(IShape, name, startTick, endTick);
     this.endP = endP;
   }
 
@@ -19,7 +19,7 @@ public class Move extends AbstractMotion {
  public String getStatus() {
     String time = String.format("from t = %d to t = %", startTick,endTick);
     String str = "Shape" + name + "moves from"
-            + shape.getPosition().toString()
+            + IShape.getPosition().toString()
             + "to" + endP.toString() + time;
     return str;
  }
