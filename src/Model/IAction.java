@@ -35,8 +35,18 @@ public interface IAction <T> {
    */
   int getEndTick();
 
+  /**
+   * Returns the start status.
+   *
+   * @return the start status
+   */
   T getStartS();
 
+  /**
+   * Returns the end status.
+   *
+   * @return the end status
+   */
   T getEndS();
 
   /**
