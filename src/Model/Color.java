@@ -14,8 +14,13 @@ public class Color implements IStatus{
    * @param red the red component of the color
    * @param green the green component of the color
    * @param blue the blue component of the color
+   * @throws IllegalArgumentException when the variable value is out of range.
    */
   public Color (double red, double green, double blue) {
+    if (red < 0 || green < 0 || blue < 0
+            || red > 255 || blue > 255 || green > 255) {
+      throw new IllegalArgumentException("Invalid Color input.");
+    }
     this.red = red;
     this.green = green;
     this.blue = blue;

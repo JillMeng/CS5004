@@ -89,9 +89,18 @@ public abstract class AbstractIShape implements IShape {
     this.size = new Scale(height, width);
   }
 
-  @Override
+
   public void addAction(Action action) {
     actions.add(action);
+  }
+
+
+  public Action getAction(int index) {
+    return actions.get(index);
+  }
+
+  public int countAction() {
+    return actions.size();
   }
 }
 

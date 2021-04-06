@@ -32,6 +32,23 @@ public class Shapes {
   }
 
   /**
+   * Count the number of shape in the shape list.
+   * @return an int value that represents the size of the list.
+   */
+  public int count() {
+    return shapes.size();
+  }
+
+  /**
+   * Get the Shape object with a given index.
+   * @param index the index of the object in the list.
+   * @return the specified Shape object.
+   */
+  public Shape getShape(int index) {
+    return shapes.get(index);
+  }
+
+  /**
    * Gets states of each shape from the shapes LinkedList with their current states at a given tick,
    * including position, color, and scale, and add each current shape with current states into
    * a new shapesCopy list, and then returns the new list.
@@ -39,12 +56,11 @@ public class Shapes {
    * @param tick the given tick used to get the current shape with current states
    * @return a new list containing shapes with their current states at the given tick
    */
-  public List<Shape> getState(int tick) {
-    List<Shape> shapesCopy = new LinkedList<>();
-    shapes.forEach(shape -> {
-      shapesCopy.add(shape);
-    });
-    shapesCopy.forEach(shape -> shape.getCurrentShape(tick));
-    return shapesCopy;
+  public void getState(int tick) {
+//    List<Shape> shapesCopy = new LinkedList<>();
+//    shapes.forEach(shape -> {
+//      shapesCopy.add(shape);
+//    });
+    shapes.forEach(shape -> shape.getCurrentShape(tick));
   }
 }

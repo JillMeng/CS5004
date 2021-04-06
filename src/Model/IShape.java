@@ -27,6 +27,20 @@ public interface IShape {
   Position getPosition();
 
   /**
+   * Returns the Color of the shape.
+   *
+   * @return the color of the shape
+   */
+  Color getColor();
+
+  /**
+   * Returns the Scale of the shape.
+   *
+   * @return the scale of the shape
+   */
+  Scale getScale();
+
+  /**
    * Sets the position of the shape using the given position.
    *
    * @param p the given position to set the position of the shape
@@ -44,7 +58,7 @@ public interface IShape {
    * Sets the scale of the shape using the given height and width.
    *
    * @param height the given height to be set
-   * @param width the given width to be set
+   * @param width  the given width to be set
    */
   void setScale(double height, double width);
 
@@ -56,12 +70,12 @@ public interface IShape {
   void addAction(Action action);
 
   /**
-   * Returns the current shape with current position,
-   * current color and current scale at the given tick.
+   * Returns the current shape with current position, current color and current scale at the given
+   * tick.
    *
    * @param tick the current tick used to get current shape
-   * @return the current shape with current position,
-   * current color and current scale at the given tick
+   * @return the current shape with current position, current color and current scale at the given
+   * tick
    */
   AbstractIShape getCurrentShape(int tick);
 
