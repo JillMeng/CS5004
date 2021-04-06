@@ -85,7 +85,7 @@ public class ShapesTest {
     assertEquals(250.0, rectangle.getCurrentShape(30).getPosition().getX(), 0.01);
     assertEquals(300.0, rectangle.getCurrentShape(60).getPosition().getX(), 0.01);
     assertEquals(300.0, rectangle.getCurrentShape(70).getPosition().getY(), 0.01);
-    //assertEquals(250.0,rectangle.getCurrentShape(85).getPosition().getY(),0.01);
+    assertEquals(250.0,rectangle.getCurrentShape(85).getPosition().getY(),0.01);
     assertEquals("Position: (300.0, 300.0)", rectangle.getCurrentShape(70).
             getPosition().getCurrentStatus());
     assertEquals("Scale: (50.5, 100.0)",
