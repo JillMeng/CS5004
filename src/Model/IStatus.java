@@ -5,6 +5,10 @@ package Model;
  */
 public interface IStatus {
 
+  /**
+   * Get the current status of model.Color, model.Position, or model.Scale in a formatted string value.
+   * @return a String value represents the current shape status.
+   */
   String getCurrentStatus();
 
 }

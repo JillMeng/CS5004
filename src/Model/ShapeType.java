@@ -1,7 +1,7 @@
 package Model;
 
 /**
- * This class defines an enum ShapeType, representing the type of a shape.
+ * This class defines an enum model.ShapeType, representing the type of a shape.
  */
 public enum ShapeType {
   RECTANGLE,

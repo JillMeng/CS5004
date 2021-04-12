@@ -3,7 +3,7 @@ package Model;
 /**
  * This class represents a position status, with x-axis and y-axis.
  */
-public class Position implements IStatus{
+public class Position implements IStatus {
   private double x;
   private double y;
 
@@ -38,7 +38,7 @@ public class Position implements IStatus{
 
   @Override
   public String getCurrentStatus() {
-    String str = "Position: (%.1f, %.1f)";
+    String str = "model.Position: (%.1f, %.1f)";
     return String.format(str, x, y);
   }
 }

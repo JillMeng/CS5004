@@ -3,7 +3,7 @@ package Model;
 /**
  * This class represents a scale status, including height and width.
  */
-public class Scale implements IStatus{
+public class Scale implements IStatus {
 
   private double height;
   private double width;
@@ -11,7 +11,7 @@ public class Scale implements IStatus{
   /**
    * Constructs a scale status with given width and height.
    *
-   * @param width the width of the scale status
+   * @param width  the width of the scale status
    * @param height the height of the scale status
    */
   public Scale(double width, double height) {
@@ -39,7 +39,7 @@ public class Scale implements IStatus{
 
   @Override
   public String getCurrentStatus() {
-    String str = "Scale: (%.1f, %.1f)";
+    String str = "model.Scale: (%.1f, %.1f)";
     return String.format(str, width, height);
   }
 }

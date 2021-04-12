@@ -27,14 +27,14 @@ public interface IShape {
   Position getPosition();
 
   /**
-   * Returns the Color of the shape.
+   * Returns the model.Color of the shape.
    *
    * @return the color of the shape
    */
   Color getColor();
 
   /**
-   * Returns the Scale of the shape.
+   * Returns the model.Scale of the shape.
    *
    * @return the scale of the shape
    */
@@ -59,23 +59,26 @@ public interface IShape {
    *
    * @param height the given height to be set
    * @param width  the given width to be set
+   * @throws IllegalArgumentException when the size entry is negative.
    */
   void setScale(double height, double width);
 
   /**
    * Adds the given action to the action list.
    *
-   * @param action the given action to be added to the action list
+   * @param motion the given action to be added to the action list
    */
-  void addAction(Action action);
+  void addAction(Motion motion);
 
   /**
    * Returns the current shape with current position, current color and current scale at the given
    * tick.
    *
    * @param tick the current tick used to get current shape
-   * @return the current shape with current position, current color and current scale at the given
-   * tick
+   * @return the current shape status of position, color and scale at the given tick.
+   * @throws IllegalArgumentException when the tick is out range.
+   * @throws IllegalStateException    when one shape is instructed to perform the same action in the
+   *                                  overlapped time intervals.
    */
   AbstractIShape getCurrentShape(int tick);
 

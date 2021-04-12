@@ -4,8 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * This is an abstract superclass that hold common code and attributes for Shape.
- * This class implements IShape interface.
+ * This is an abstract superclass that hold common code and attributes for model.Shape. This class
+ * implements model.IShape interface.
  */
 public abstract class AbstractIShape implements IShape {
 
@@ -16,25 +16,27 @@ public abstract class AbstractIShape implements IShape {
   protected Color color;
   protected int appearT;
   protected int disappearT;
-  protected List<Action> actions = new LinkedList<>();
+  protected List<Motion> motions = new LinkedList<>();
 
 
   /**
-   * Constructs an AbstractIShape using given name, shape type, position,
-   * size, color, appear tick and disappear tick.
+   * Constructs an model.AbstractIShape using given name, shape type, position, size, color, appear tick
+   * and disappear tick.
    *
-   * @param name the name id of the shape
-   * @param type the shape type of the shape
-   * @param position the position of the shape
-   * @param size the size of the shape
-   * @param color the color of the shape
-   * @param appearT the appear tick of the shape
+   * @param name       the name id of the shape
+   * @param type       the shape type of the shape
+   * @param position   the position of the shape
+   * @param size       the size of the shape
+   * @param color      the color of the shape
+   * @param appearT    the appear tick of the shape
    * @param disappearT the disappear tick of the shape
+   * @throws IllegalArgumentException when the invalid user-input is passed to construct
+   *                                  AbstractShape.
    */
   public AbstractIShape(String name, ShapeType type, Position position, Scale size,
                         Color color, int appearT, int disappearT) {
     if (name == null || appearT < 0 || disappearT < appearT) {
-      throw new IllegalArgumentException("Shape object is invalid.");
+      throw new IllegalArgumentException("model.Shape object is invalid.");
     }
     this.name = name;
     this.type = type;
@@ -82,25 +84,26 @@ public abstract class AbstractIShape implements IShape {
   }
 
   @Override
-  public void setScale(double height, double width) {
+  public void setScale(double width, double height) {
     if (height < 0 || width < 0) {
-      throw new IllegalArgumentException("Scale size cannot be negative");
+      throw new IllegalArgumentException("model.Scale size cannot be negative");
     }
-    this.size = new Scale(height, width);
+    this.size = new Scale(width, height);
   }
 
 
-  public void addAction(Action action) {
-    actions.add(action);
+  public void addAction(Motion motion) {
+    motions.add(motion);
   }
 
-
-  public Action getAction(int index) {
-    return actions.get(index);
+  public Motion getAction(int index) {
+    return motions.get(index);
   }
 
   public int countAction() {
-    return actions.size();
+    return motions.size();
   }
+
+
 }
 

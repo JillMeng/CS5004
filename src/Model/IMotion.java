@@ -5,7 +5,8 @@ package Model;
  *
  * @param <T> current status
  */
-public interface IAction <T> {
+public interface IMotion<T> {
+
 
   /**
    * Returns the name id of the target shape that will act the action.
@@ -54,6 +55,6 @@ public interface IAction <T> {
    *
    * @return the action type of the action
    */
-  ActionType getActionType();
+  MotionType getMotionType();
 
 }
