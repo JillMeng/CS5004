@@ -11,7 +11,7 @@ Since AbstracIShape and Shape will have Position, Color and Scale, so there are 
 ## One thing to mention about our design
 We only have Shapes that hold a list of shape, instead of having two classes for both shape list and action list, because we want to have action list initialized in each shape so that action is grouped by each shape. In this way, when we want to access action of a shape, we don't need to go over the whole action lists, instead we only need to go to the shape and find one of its actions.
 # Assignment 7
-## Updates: 
+## Updates
 We reconstructed our model with three interfaces: IShape, IMotion, IModel. We now have all parameters related to shapes in the Shpae class that implements IShape interface. We have all motion related parameters and methods in the Motion class that implements IMotion interface. The Model class implements IModel and it has two lists: shape list that contains all the shapes of our animation, and motion list that contains all the motions of our animation. 
 We had to reconstruct our getCurrentStatus method at a given tick with two lists.
 ## IView
