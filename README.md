@@ -11,12 +11,18 @@ Since AbstracIShape and Shape will have Position, Color and Scale, so there are 
 ## One thing to mention about our design
 We only have Shapes that hold a list of shape, instead of having two classes for both shape list and action list, because we want to have action list initialized in each shape so that action is grouped by each shape. In this way, when we want to access action of a shape, we don't need to go over the whole action lists, instead we only need to go to the shape and find one of its actions.
 # Assignment 7
-Updates: We have reconstrcuted our model class with two lists. 
+## Updates: 
+We reconstructed our model with three interfaces: IShape, IMotion, IModel. We now have all parameters related to shapes in the Shpae class that implements IShape interface. We have all motion related parameters and methods in the Motion class that implements IMotion interface. The Model class implements IModel and it has two lists: shape list that contains all the shapes of our animation, and motion list that contains all the motions of our animation. 
 We had to reconstruct our getCurrentStatus method at a given tick with two lists.
-
-IView: We have created this Interface and implmented three types of views.
-ViewFactory: There are three type of views with a single static method that takes in a String and name for a view—“text”, “svg”, or “visual” as well as a Model object; it constructs an instance of the appropriate concrete view.
-
-ViusalView: Implements IView. In this class, we created a method that construct a JFrame object. It reprensents the given canvis size and location. We take in a model object and created a panel that we will be drawing our shapes on.
+## IView
+We have created this Interface and implmented three types of views.
+## ViewFactory
+There are three type of views with a single static method that takes in a String and name for a view—“text”, “svg”, or “visual” as well as a Model object; it constructs an instance of the appropriate concrete view.
+## ViusalView
+Implements IView. In this class, we created a method that construct a JFrame object. It reprensents the given canvis size and location. We take in a model object and created a panel that we will be drawing our shapes on.
 MyPanel: The panel we build to draw all the shapes at a given time point. We also add the timer in this class that implements the ActionListener. we repreatly increase the time tick and call the timer method at 1s/speed delay. This allows us to draw the shapes with 1s/speed interval. 
 As we are not required to build the controller for this assignment, we add the timer in MyPanel class. We will move the timer to controller in our next Assignment.
+## TextualView
+this class represents our textual output.
+## SVGView
+This class represents our SVG view and the output is in SVG format.
