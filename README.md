@@ -11,7 +11,9 @@ Since AbstracIShape and Shape will have Position, Color and Scale, so there are 
 ## One thing to mention about our design
 We only have Shapes that hold a list of shape, instead of having two classes for both shape list and action list, because we want to have action list initialized in each shape so that action is grouped by each shape. In this way, when we want to access action of a shape, we don't need to go over the whole action lists, instead we only need to go to the shape and find one of its actions.
 # Assignment 7
-Updates: We have reconstrcuted our model class with two lists 
+Updates: We have reconstrcuted our model class with two lists. 
+We had to reconstruct our getCurrentStatus method at a given tick with two lists.
+
 IView: We have created this Interface and implmented three types of views.
 ViewFactory: There are three type of views with a single static method that takes in a String and name for a view—“text”, “svg”, or “visual” as well as a Model object; it constructs an instance of the appropriate concrete view.
 
